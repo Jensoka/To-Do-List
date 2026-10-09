@@ -1,3 +1,149 @@
+@font-face {
+    font-family: "Vanilla Cream Ox";
+    src: url("./assets/VanillaCreamOx-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Krazy Nights";
+    src: url("./assets/KRAZYNIGHTS.TTF");
+}
+
 body {
     background-color: blanchedalmond;
 }
+
+
+.input-section {
+    background-image: url("./assets/Orange_pencil.png");
+    background-size: 500px auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+   
+    height: 80px;
+    
+    display: flex;
+    
+    justify-content: center;
+    
+}
+
+.input-container {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   bottom: 16px;
+   right: 10px;
+
+   
+   
+}
+
+.input-container input {
+   
+    width: 100px;
+    background-color: #eddabe;
+    outline: none;
+    border: none; 
+    border-radius: 10px;
+    font-family: "Krazy Nights", sans-serif;
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+
+.list-header {
+    display: flex;
+
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    font-family: "Vanilla Cream Ox", sans-serif;
+    font-size: 35px;
+    color: #FF8C00;
+
+}
+
+.list-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 auto;
+    min-width: 500px;
+
+    background-image: url('./assets/note.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    height: 600px;
+    overflow: hidden;
+}
+  
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    
+   
+}
+
+.todo-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 0;
+    width: 400px;
+    
+   
+}
+
+.todo-completed .text {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    opacity: 0.5;
+
+}
+
+.todo-list li {
+    display: flex;
+    align-items:flex-start;
+    width: 100%;
+}
+
+.text {
+   display:block;
+   max-width:360px;
+    flex: 1;
+    cursor: pointer;
+   
+   
+    
+    font-family: "Vanilla Cream Ox", sans-serif;
+    font-size: 45px;
+    color: #4a4a4a;
+    font-weight: bold;
+    line-height: 37.5px;
+   
+    
+    
+}
+
+.delete-button {
+    background-color: transparent;
+    border: none;
+    margin-left: auto;
+    margin-right: 10px;
+    font-family: "Vanilla Cream Ox", sans-serif;
+    font-size: 30px;
+    color: red;
+    
+    cursor: pointer;
+   
+}
+
+
