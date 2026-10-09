@@ -25,10 +25,19 @@ function TodoList () {
 
     function addTodo() {
 
+        if (newTodo.trim() !== "") {
 
+            setTodos(todos => [...todos, {
+                id: Date.now(),
+                text: newTodo.trim(),
+                done: false,
+            }]);
+         setNewTodo("");
+        }
     }
 
     function deleteTodo(id) {
+        setTodos(todos.filter((todo) => todo.id !== id)); 
 
     }
 
@@ -57,6 +66,12 @@ function TodoList () {
                     <span className="text">
                         {todo.text}
                     </span>
+                    <button 
+                    className="delete-button"
+                    onClick={() => deleteTodo(todo.id)}>
+                        x
+                    </button>
+
                 
                 </li>
             ))}
