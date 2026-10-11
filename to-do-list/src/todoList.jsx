@@ -13,7 +13,7 @@ function TodoList () {
 
     function handleInputChange(event) {
         setNewTodo(event.target.value);
-    }                                         // flödet: du skriver -> onChange körs -> handleInputChange(e) -> event.target.value är det du skrev -> setNewTask("text") -> newTask blir "text".
+    }                                        
 
     function addTodo() {
 
@@ -26,14 +26,6 @@ function TodoList () {
             }]);
          setNewTodo("");
         }
-    }
-
-    function toggleDone(id) {
-        setTodos(
-            todos.map((todo) => (todo.id === id ? {...todo, done: !todo.done} : todo))
-
-        );
-        
     }
 
     function handleSubmit(event) {

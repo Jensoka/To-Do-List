@@ -1,16 +1,21 @@
-# React + Vite
+State-hantering
+  Appen använder useState för att hålla reda på uppgifterna i arrayen todos. När setTodos anropas med ny data renderar React om komponenten och uppdaterar gränssnittet. Då kan till exempel en uppgift bli genomstruken när man klickar på den, eller en ny uppgift läggas till när man skickar in ett nytt värde.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Immutability
+   Vi bör inte använda .push för att ändra en befintlig array, eftersom det muterar original-arrayen och React kan missa att state har ändrats. När vi till exempel vill ta bort en uppgift används .filter(), som skapar en ny array utan uppgiften som ska tas bort.
 
-Currently, two official plugins are available:
+Kodgranskning
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+function addTodo(todos, text) {
+  todos.push(text);
+  return todos;
+}
 
-## React Compiler
+    Funktionen addTodo ändrar den befintliga todos-arrayen direkt med .push(). Den returnerar därför samma array, vilket kan göra att React inte upptäcker att state har ändrats och därmed inte renderar om gränssnittet korrekt.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+    I React bör man skapa en ny array och uppdatera state med setTodos. Ett bättre sätt att skriva koden:
+    
+    setTodos(todos => [...todos, text]);
 
-## Expanding the ESLint configuration
+    Spread-syntaxen kopierar de befintliga uppgifterna till en ny array och lägger till texten utan att ändra original-arrayen.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
